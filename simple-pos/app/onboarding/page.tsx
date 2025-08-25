@@ -1,6 +1,7 @@
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import Link from "next/link";
+import RoleSelector from "./RoleSelector";
 
 export default async function OnboardingPage() {
   const { userId } = await auth();
@@ -19,34 +20,7 @@ export default async function OnboardingPage() {
         </p>
 
         <div className="bg-white rounded-lg shadow-md p-8 space-y-6">
-          <div>
-            <h2 className="text-2xl font-semibold mb-4">Select Your Role</h2>
-            <p className="text-gray-600 mb-4">
-              Choose your primary role in the organization. This will determine what features you can access.
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <button className="p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all">
-                <h3 className="font-semibold text-lg">👨‍💼 Admin</h3>
-                <p className="text-sm text-gray-600 mt-1">Full system access, manage events and settings</p>
-              </button>
-              
-              <button className="p-4 border-2 border-gray-200 rounded-lg hover:border-green-500 hover:bg-green-50 transition-all">
-                <h3 className="font-semibold text-lg">🍽️ Waiter</h3>
-                <p className="text-sm text-gray-600 mt-1">Take orders and manage tables</p>
-              </button>
-              
-              <button className="p-4 border-2 border-gray-200 rounded-lg hover:border-orange-500 hover:bg-orange-50 transition-all">
-                <h3 className="font-semibold text-lg">👨‍🍳 Kitchen</h3>
-                <p className="text-sm text-gray-600 mt-1">View and process incoming orders</p>
-              </button>
-              
-              <button className="p-4 border-2 border-gray-200 rounded-lg hover:border-purple-500 hover:bg-purple-50 transition-all">
-                <h3 className="font-semibold text-lg">💰 Cashier</h3>
-                <p className="text-sm text-gray-600 mt-1">Process payments and close orders</p>
-              </button>
-            </div>
-          </div>
+          <RoleSelector />
 
           <div className="border-t pt-6">
             <h2 className="text-xl font-semibold mb-2">Organization Setup</h2>
