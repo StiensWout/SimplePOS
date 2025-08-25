@@ -1,17 +1,28 @@
-import { auth } from "@clerk/nextjs/server";
+import { auth, currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
 export default async function DashboardPage() {
   const { userId } = await auth();
+  const user = await currentUser();
   
   if (!userId) {
     redirect("/sign-in");
   }
 
+  const userRole = user?.publicMetadata?.role as string | undefined;
+
+  // If user has no role, redirect to onboarding
+  if (!userRole) {
+    redirect("/onboarding");
+  }
+
   return (
-    <div className="min-h-screen p-8">
+    <div className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold mb-8">SimplePOS Dashboard</h1>
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold">Dashboard</h1>
+          <p className="text-gray-600 mt-2">Welcome back, {user?.firstName || "User"}! You are logged in as {userRole || "no role assigned"}.</p>
+        </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
