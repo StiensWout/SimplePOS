@@ -15,7 +15,7 @@ export default async function OnboardingPage() {
       <div className="max-w-3xl mx-auto">
         <h1 className="text-4xl font-bold mb-4">Welcome to SimplePOS! 👋</h1>
         <p className="text-xl text-gray-600 mb-8">
-          Hello {user?.firstName || "there"}, let's get you set up.
+          Hello {user?.firstName || "there"}, let&apos;s get you set up.
         </p>
 
         <div className="bg-white rounded-lg shadow-md p-8 space-y-6">
@@ -51,7 +51,7 @@ export default async function OnboardingPage() {
           <div className="border-t pt-6">
             <h2 className="text-xl font-semibold mb-2">Organization Setup</h2>
             <p className="text-gray-600 mb-4">
-              You'll need to be added to an organization by an admin, or create your own if you're setting up a new system.
+              You&apos;ll need to be added to an organization by an admin, or create your own if you&apos;re setting up a new system.
             </p>
             <div className="flex gap-4">
               <button className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors">

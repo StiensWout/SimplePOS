@@ -30,7 +30,7 @@ export default async function DashboardPage() {
           </div>
           
           <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
-            <h2 className="text-xl font-semibold mb-4">Today's Stats</h2>
+            <h2 className="text-xl font-semibold mb-4">Today&apos;s Stats</h2>
             <div className="space-y-2">
               <p className="text-gray-600">Orders: <span className="font-bold">0</span></p>
               <p className="text-gray-600">Revenue: <span className="font-bold">$0.00</span></p>
